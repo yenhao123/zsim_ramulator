@@ -307,9 +307,19 @@ void LaunchProcess(uint32_t procIdx) {
 
 
 int main(int argc, char *argv[]) {
+
     if (argc == 2 && std::string(argv[1]) == "-v") {
         printf("%s\n", ZSIM_BUILDVERSION);
         exit(0);
+    }
+
+    InitLog("[H] ", nullptr);
+    info("Starting zsim, built %s (rev %s)", ZSIM_BUILDDATE, ZSIM_BUILDVERSION);
+    startTime = time(nullptr);
+
+    if (argc != 2) {
+        info("Usage: %s config_file", argv[0]);
+        exit(1);
     }
 
     InitLog("[H] ", nullptr /*log to stdout/err*/);
@@ -403,6 +413,7 @@ int main(int argc, char *argv[]) {
     int32_t secsStalled = 0;
 
     int64_t lastNumPhases = 0;
+    info(std::to_string(getNumChildren()).c_str());
 
     while (getNumChildren() > 0) {
         if (!gm_isready()) {

@@ -30,4 +30,5 @@ if __name__ == "__main__":
     src_directory = "/root/ramulator-pim/zsim-ramulator/shell/canny/cifar-10/cifar-10/train/cat/"
     dst_directory = "/root/ramulator-pim/zsim-ramulator/shell/canny/input"
     
-    select_random_images(src_directory, dst_directory, num_images=100)
+    group_size = 2000
+    select_random_images(src_directory, dst_directory, num_images=group_size)

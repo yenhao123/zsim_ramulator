@@ -1,6 +1,6 @@
 zsim_home_dir=/ramulator-pim/zsim-ramulator
-ramulator_home_dir=/ramulator-pim/ramulator
-for i in {0..3}
+n_groups=0
+for ((i=0; i<=n_groups; i++))
 do
     cfg_file="${zsim_home_dir}/tests/canny/canny_${i}.cfg"
     ${zsim_home_dir}/build/opt/zsim ${cfg_file}
