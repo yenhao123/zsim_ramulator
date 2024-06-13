@@ -15,7 +15,7 @@
   </memarchitecturespec>
   <memtimingspec>
       <parameter id="clkMhz" type="double" value="1200" />
-      <parameter id="REFI" type="uint" value="4680" />
+      <parameter id="REFI" type="uint" value="21060" />
       <parameter id="RFC" type="uint" value="313" />
       <parameter id="RL" type="uint" value="16" />
       <parameter id="WL" type="uint" value="16" />
@@ -23,7 +23,7 @@
       <parameter id="AL" type="uint" value="0" />
       <parameter id="RP" type="uint" value="16" />
       <parameter id="RAS" type="uint" value="39" />
-      <parameter id="RCD" type="uint" value="16" />
+      <parameter id="RCD" type="uint" value="24" />
       <parameter id="RC" type="uint" value="55" />
       <parameter id="FAW" type="uint" value="26" />
       <parameter id="RTP" type="uint" value="12" />

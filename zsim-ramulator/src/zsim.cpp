@@ -622,13 +622,17 @@ static void PrintIp(THREADID tid, ADDRINT ip) {
 
 void* lowest_memory = reinterpret_cast<void*>(-1); // Initialize to the highest possible address
 void* largest_memory = reinterpret_cast<void*>(0); // Initialize to the lowest possible address
-bool FUNCTION_BEGIN = true;
+bool FUNCTION_BEGIN = false;
 double err_prob;
 VOID FI_InjectFault_Mem(UINT32 *readAddr, UINT32 readSize) {
-    // Address range constants
-    const UINT64 safeRangeStart = 0x55555564d080;
-    const UINT64 safeRangeEnd = 0x55555564d47f;
-
+    // Address range constants 
+    /*
+    //canny
+    const UINT64 safeRangeStart = 0x55555564f080;
+    const UINT64 safeRangeEnd = 0x55555564f5cf;
+    */
+    const UINT64 safeRangeStart = 0x5555556030e0;
+    const UINT64 safeRangeEnd = 0x555555603100;
     // Check if readAddr is nullptr
     if (readAddr == nullptr) {
         //std::cerr << "Error: readAddr is nullptr" << std::endl;
@@ -1818,6 +1822,15 @@ int main(int argc, char *argv[])
 
     err_prob = read_error_rate();
     printf("Error probability: %.10e\n", err_prob);
+    if(err_prob > 0.015){
+        const char* quality_file = "/root/ramulator-pim/zsim-ramulator/shell/canny/quality/quality.csv";
+        std::ofstream outf;
+        outf.open(quality_file);
+        outf << "ERROR RATE OVER LIMIT" << std::endl;
+        std::cout << "ERROR RATE OVER LIMIT" << std::endl;
+        outf.close();
+        exit(0);
+    }
 
     PIN_InitSymbols();
     if (PIN_Init(argc, argv))

@@ -2,7 +2,7 @@
 
 1. execute generate_input.py
 2. execute generate_config.py
-3. execute 
+3. execute main.sh
 
 generate_input.py
 >生成 blackscholes 的 input

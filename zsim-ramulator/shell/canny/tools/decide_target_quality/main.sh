@@ -1,0 +1,1 @@
+/ramulator-pim/zsim-ramulator/build/opt/zsim /ramulator-pim/zsim-ramulator/tests/canny/decide_target_quality/canny.cfg
